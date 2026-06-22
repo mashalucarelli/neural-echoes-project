@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Echoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111111;
+      --ink-soft:#9a9a9a;   /* grigio dell'hover */
+      --rule:#111111;
+      --pad:clamp(1.5rem, 4vw, 3rem);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      z-index:10;
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:2rem;
+      padding:var(--pad) var(--pad) 0;
+    }
+    .brand{
+      font-size:1.3rem;
+      font-weight:600;
+      letter-spacing:-0.01em;
+      color:var(--ink);
+      font-style:italic;
+      text-decoration:none;
+      transition:color .25s ease;
+    }
+    .brand:hover,
+    .brand:focus-visible{color:var(--ink-soft);}
+    .nav{display:flex; gap:2.5rem;}
+    .nav a{
+      font-size:1.3rem;
+      font-weight:600;
+      letter-spacing:-0.01em;
+      color:var(--ink);
+      text-decoration:none;
+      transition:color .25s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible{color:var(--ink-soft);}
+
+    /* ===== HOME CONTENT SYSTEM ===== */
+    .home-main{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:var(--pad);
+      margin-top: 5rem;
+    }
+
+    /* Contenitore verticale per scritte + video */
+    .content-wrapper {
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Righe delle scritte superiori (SANO / MALATO) */
+    .label-row-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide lo spazio sopra in due metà esatte */
+      text-align: center;             /* Centra le parole nelle rispettive metà */
+      font-size: clamp(1rem, 2.2vw, 1.4rem); 
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem; 
+    }
+
+    /* Righe delle scritte inferiores (Dati MMSE) */
+    .label-row-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide lo spazio sotto in due metà esatte */
+      font-size: clamp(0.75rem, 1.6vw, 0.9rem); 
+      line-height: 1.5;
+      margin-top: 1rem; 
+    }
+
+    /* Blocchi di testo inferiori (Sano vs Malato) */
+    .meta-block {
+      width: 100%;          
+      text-align: center;   /* Centra il testo esattamente sotto i titoli sopra */
+      padding-left: 0;      
+    }
+
+    /* ===== BOX VIDEO ===== */
+    .video-box{
+      width:100%;
+      aspect-ratio:16 / 9;
+      border:1px solid var(--ink);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.4rem;
+      color:var(--ink);
+      background: #000; /* Sfondo nero per evitare flash bianchi al caricamento del video */
+    }
+    .video-box video{
+      width:100%; 
+      height:100%; 
+      object-fit:cover; 
+      display:block;
+    }
+
+    .legenda{
+      position:absolute;
+      left: 1rem;       /* Spostato a destra (prima era a -3rem, fuori dallo schermo) */
+      bottom: 1rem;     /* Spostato più in alto (prima era a -2rem) */
+      width: clamp(160px, 20vw, 240px); 
+      height:auto;
+      z-index: 1;
+    }
+
+    /* Sposta leggermente a sinistra il titolo "Malato" */
+    .label-row-top span:nth-child(2) {
+      padding-right: 3rem; /* Spinge il testo verso sinistra (aumenta o diminuisci a piacimento) */
+    }
+
+    /* Sposta leggermente a sinistra il blocco dati del "Malato" */
+    .label-row-bottom .meta-block:nth-child(2) {
+      padding-right: 2.5rem; /* Spinge i dati verso sinistra (usa lo stesso valore impostato sopra per allinearli) */
+    }
+
+    /* Sposta leggermente a destra il titolo "Sano" */
+    .label-row-top span:nth-child(1) {
+      padding-left: 2rem; /* Spinge il testo verso destra */
+    }
+
+    /* Sposta leggermente a destra il blocco dati del "Sano" */
+    .label-row-bottom .meta-block:nth-child(1) {
+      padding-left: 2rem; /* Spinge i dati verso destra */
+    }
+
+    @media (max-width:760px){
+      .site-header{position:static;}
+      .nav{gap:1.25rem;}
+      .home-main{flex:none; min-height:auto; padding-top:1rem; margin-top: 0;}
+      .label-row-top { margin-bottom: 0.6rem; }
+      .label-row-bottom { margin-top: 0.6rem; }
+      .meta-block { padding-left: 2rem; }
+      .legenda{position:static; display:block; margin:2rem auto 0; width:300px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Neural Echoes</a>
+    <nav class="nav">
+      <a href="alzheimer.html">alzheimer</a>
+      <a href="project.html">project</a>
+      <a href="about.html">about us</a>
+    </nav>
+  </header>
+
+  <main class="home-main">
+    
+    <div class="content-wrapper">
+      
+      <div class="label-row-top">
+        <span>Sano</span>
+        <span>Malato</span>
+      </div>
+
+      <div class="video-box">
+        <video controls playsinline>
+          <source src="video lobi.mov" type="video/mp4">
+          Il tuo browser non supporta la riproduzione di questo video.
+        </video>
+      </div>
+
+      <div class="label-row-bottom">
+        
+        <div class="meta-block">
+          MMSE 30<br>
+          età 70<br>
+          genere F
+        </div>
+        
+        <div class="meta-block">
+          MMSE 4<br>
+          età 71<br>
+          genere M
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <img class="legenda" src="legenda.png" alt="Legenda dei lobi del cervello">
+
+</body>
+</html>

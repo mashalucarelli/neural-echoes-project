@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about us — Neural Echoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111111;
+      --ink-soft:#9a9a9a;
+      --rule:#111111;
+      --pad:clamp(1.5rem, 4vw, 3rem);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+      padding-bottom:var(--pad);
+    }
+
+    /* ===== HEADER ===== */
+    .site-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:2rem;
+      padding:var(--pad) var(--pad) 0;
+    }
+    .brand{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      font-style:italic;
+      transition:color .25s ease;
+    }
+    .brand:hover,
+    .brand:focus-visible{color:var(--ink-soft);}
+    .nav{display:flex; gap:2.5rem;}
+    .nav a{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      transition:color .25s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible{color:var(--ink-soft);}
+
+    /* ===== TITOLO PAGINA ===== */
+    .page-title{
+      font-size:clamp(2.5rem, 7vw, 4.5rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1;
+      margin:clamp(1rem, 3vw, 2rem) 0 0;
+      padding:0 var(--pad);
+    }
+
+    /* ===== STRUTTURA AD UNA COLONNA (ABOUT) ===== */
+    .about-body{
+      margin:clamp(2.5rem, 6vw, 4rem) var(--pad) 0;
+      max-width: 650px; /* Mantiene il testo leggibile senza farlo allargare all'infinito */
+    }
+    
+    .about-body p{
+      font-size:0.85rem;
+      line-height:1.7;
+      text-align:justify;
+      hyphens:auto;
+      margin:0 0 0.95rem;
+    }
+
+    .about-body h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== RESPONSIVE PER SITI MOBILE ===== */
+    @media (max-width:760px){
+      .nav{gap:1.25rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Neural Echoes</a>
+    <nav class="nav">
+      <a href="alzheimer.html">alzheimer</a>
+      <a href="project.html">project</a>
+      <a href="about.html">about us</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">about us</h1>
+
+  <div class="about-body">
+    
+    <div class="about-text">
+      <p>Siamo un gruppo di studenti di “Sound Design”, corso della Laurea Triennale in Design che mira a sviluppare una consapevolezza critica e operativa del suono como linguaggio autonomo e progettuale, integrandolo nei processi di design per la comunicazione e per le esperienze multisensoriali.</p>
+      
+      <h2>Il team</h2>
+      <p>
+        Luigi Bombara<br>
+        Federica Casartelli<br>
+        Masha Lucarelli<br>
+        Filippo Maggiali<br>
+        Mattia Micucci
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

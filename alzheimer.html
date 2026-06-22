@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about us — Neural Echoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111111;
+      --ink-soft:#9a9a9a;
+      --rule:#111111;
+      --pad:clamp(1.5rem, 4vw, 3rem);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+      padding-bottom:var(--pad);
+    }
+
+    /* ===== HEADER ===== */
+    .site-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:2rem;
+      padding:var(--pad) var(--pad) 0;
+    }
+    .brand{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      font-style:italic;
+      transition:color .25s ease;
+    }
+    .brand:hover,
+    .brand:focus-visible{color:var(--ink-soft);}
+    .nav{display:flex; gap:2.5rem;}
+    .nav a{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      transition:color .25s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible{color:var(--ink-soft);}
+
+    /* ===== TITOLO PAGINA ===== */
+    .page-title{
+      font-size:clamp(2.5rem, 7vw, 4.5rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1;
+      margin:clamp(1rem, 3vw, 2rem) 0 0;
+      padding:0 var(--pad);
+    }
+
+
+    .alzheimer-body{
+      margin:clamp(2.5rem, 6vw, 4rem) var(--pad) 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide lo spazio in 2 colonne uguali */
+      gap: clamp(2rem, 5vw, 4rem);     /* Spazio vuoto tra il testo e l'immagine */
+      align-items: start;             /* Allinea il testo e l'immagine in alto */
+    }
+    
+    .alzheimer-body p{
+      font-size:0.85rem;
+      line-height:1.7;
+      text-align:justify;
+      margin:0 0 0.95rem;
+      
+      /* ===== SILLABAZIONE AUTOMATICA ATTIVATA ===== */
+      -webkit-hyphens: auto; /* Per Safari e iOS */
+      -ms-hyphens: auto;     /* Per vecchie versioni Edge/IE */
+      hyphens: auto;         /* Standard per Chrome e Firefox */
+    }
+
+    /* Gestione dell'immagine di destra */
+    .alzheimer-img {
+      width: 55%;
+      height: auto;
+      display: block;
+      margin-left: auto;    
+      margin-right: auto;   
+      margin-top: 28rem;
+    }
+
+    /* ===== RESPONSIVE PER SITI MOBILE ===== */
+    @media (max-width:760px){
+      .nav{gap:1.25rem;}
+      .alzheimer-body{
+        grid-template-columns: 1fr;   /* Sui telefoni l'immagine si sposta sotto al testo */
+        gap: 2rem;
+      }
+      .alzheimer-text{max-width: none;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Neural Echoes</a>
+    <nav class="nav">
+      <a href="alzheimer.html">alzheimer</a>
+      <a href="project.html">project</a>
+      <a href="about.html">about us</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">alzheimer</h1>
+
+  <div class="alzheimer-body">
+    
+    <div class="alzheimer-text">
+      <h2>Meccanismi biologici</h2>
+      <p>A livello cellulare, la malattia di Alzheimer è definita dalle placche di proteina beta-amiloide e dai i grovigli neurofibrillari di proteina tau. In un organismo sano, la beta-amiloide viene eliminata regolarmente, ma nei pazienti si accumula nello spazio tra i neuroni, formando ammassi tossici che bloccano la comunicazione sinaptica. Questo isolamento progressivo impedisce lo scambio di informazioni essenziali alla sopravvivenza dei neuroni stessi.</p>
+      <p>Contemporaneamente, all'interno delle cellule nervose, la proteina tau subisce un collasso strutturale. Il suo compito originario è quello di mantenere stabili i microtubuli, ovvero i canali di trasporto dei nutrienti del neurone. Quando la tau si altera, si aggroviglia e distrugge questo sistema di trasporto. Privati di nutrimento e incapaci di comunicare all'esterno, i neuroni avviano un processo inevitabile di atrofia e morte cellulare, provocando il restringimento visibile del tessuto cerebrale. Nel quotidiano del malato, questa distruzione cellulare si manifesta inizialmente con piccole ma sistematiche dimenticanze (lasciare le chiavi in posti insoliti, scordare un appuntamento), che non sono semplici distrazioni senili, ma i primi fili della rete neurale che si stanno spezzando.</p>
+      <h2>Evoluzione nei lobi</h2>
+      <p>Il danno neurodegenerativo segue un percorso anatomico ben preciso. Tutto comincia nella zona profonda del lobo temporale, in particolare nell'ippocampo, la struttura responsabile della formazione dei nuovi ricordi. È questo il motivo per cui il sintomo iniziale più comune è l'amnesia anterograda, cioè la difficoltà a ricordare eventi recenti, mentre i dettagli del passato restano nitidi a lungo. Nella realtà del malato, questo blocco dell'ippocampo genera il tipico effetto "loop": la persona non riesce a fissare l'informazione appena ricevuta e finisce per ripetere la stessa identica domanda o lo stesso racconto a distanza di pochi minuti, dimenticando di averlo appena fatto.</p>
+      <p>Con il progredire della patologia, i danni si estendono ai lobi parietali, compromettendo la percezione dello spazio e l'orientamento, rendendo difficili anche i percorsi quotidiani. Il malato sperimenta un senso di smarrimento anche in luoghi familiari o fatica a calcolare le distanze per afferrare un oggetto.</p>
+      <p>Successivamente viene intaccato il lobo frontale, l'area deputata alle funzioni esecutive, al linguaggio e al controllo del comportamento. Quando le connessioni frontali cedono, compaiono le difficoltà nel trovare le parole corrette (anomia) e la frammentazione del discorso, accompagnate da sbalzi d'umore improvvisi, apatia e crescenti difficoltà nel pianificare azioni o risolvere problemi anche molto semplici, come gestire il denaro o vestirsi nell'ordine corretto.</p>
+      <h2>Tracciato elettrico ed EEG</h2>
+      <p>Prima ancora che l'atrofia distrugga visibilmente la struttura del cervello, l'Alzheimer altera profondamente l'attività elettrica neuronale. Le reti sinaptiche danneggiate subiscono quello che in clinica viene definito "rallentamento del ritmo cerebrale". Nei tracciati elettroencefalografici (EEG) a riposo, questo fenomeno si traduce in una drastica riduzione delle onde rapide (come le frequenze alpha, tipiche del rilassamento vigile) e in un aumento anomalo delle onde lente (delta e theta).</p>
+      <p>Questo rallentamento elettrico si riflette direttamente sulla prontezza del malato: le risposte agli stimoli esterni si fanno più faticose, l'attenzione si esaurisce rapidamente e l'elaborazione dei pensieri richiede tempi sempre più lunghi. Analizzare la perdita di sincronia tra gli elettrodi permette di quantificare il declino della connettività funzionale. Poiché l'EEG cattura queste anomalie elettriche con estrema precisione temporale, lo studio matematico dei ritmi cerebrali rappresenta una delle frontiere più promettenti per lo sviluppo di biomarcatori non invasivi. Identificare questi "echi" elettrici alterati consente di intercettare la malattia nelle sue primissime fasi, quando i sintomi visibili non sono ancora del tutto evidenti.</p>
+    </div>
+
+    <img class="alzheimer-img" src="alzheimer.PNG" alt="Neural Echoes Team">
+
+  </div>
+
+</body>
+</html>

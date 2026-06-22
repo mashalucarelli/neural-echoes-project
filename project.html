@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>project — Neural Echoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111111;
+      --ink-soft:#9a9a9a;
+      --rule:#111111;
+      --pad:clamp(1.5rem, 4vw, 3rem);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+      padding-bottom:var(--pad);
+    }
+
+    /* ===== HEADER ===== */
+    .site-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:2rem;
+      padding:var(--pad) var(--pad) 0;
+    }
+    .brand{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      font-style:italic;
+      transition:color .25s ease;
+    }
+    .brand:hover,
+    .brand:focus-visible{color:var(--ink-soft);}
+    .nav{display:flex; gap:2.5rem;}
+    .nav a{
+      font-size:1.3rem; font-weight:600; letter-spacing:-0.01em;
+      color:var(--ink); text-decoration:none;
+      transition:color .25s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible{color:var(--ink-soft);}
+
+    /* ===== TITOLO PAGINA ===== */
+    .page-title{
+      font-size:clamp(2.5rem, 7vw, 4.5rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1;
+      margin:clamp(1rem, 3vw, 2rem) 0 0;
+      padding:0 var(--pad);
+    }
+
+    /* ===== STRUTTURA A DUE COLONNE ===== */
+    .project-body{
+      margin:clamp(2.5rem, 6vw, 4rem) var(--pad) 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide lo spazio in 2 colonne uguali */
+      gap: clamp(2rem, 5vw, 4rem);     /* Spazio vuoto tra testo e immagini */
+      align-items: start;             /* Allinea il contenuto in alto */
+    }
+   
+    .project-body p{
+      font-size:0.85rem;
+      line-height:1.7;
+      text-align:justify;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      
+      margin:0 0 0.95rem;
+    }
+
+    /* Contenitore per impilare le immagini a destra */
+    .project-images-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      gap: 3.5rem; /* Spazio verticale tra le immagini */
+      margin-top: 5rem; /* Spostato più in basso per bilanciare l'altezza del testo dell'H2 */
+    }
+
+    /* Stile base comune per tutte le immagini */
+    .project-img {
+      height: auto;
+      display: block;
+      margin: 0 auto; 
+    }
+
+    /* Rimpicciolisce molto la prima (project.png) */
+    .img-small {
+      width: 40%;
+    }
+
+    /* Dimensione intermedia calibrata per imgtd e imgpd */
+    .img-medium {
+      width: 70%; 
+    }
+
+    /* ===== RESPONSIVE PER SITI MOBILE ===== */
+    @media (max-width:760px){
+      .nav{gap:1.25rem;}
+      .project-body{
+        grid-template-columns: 1fr;   /* Sposta le immagini sotto al testo */
+        gap: 2rem;
+      }
+      .project-text{max-width: none;}
+      
+      .project-images-column {
+        margin-top: 2rem; /* Ripristina un margine standard sui telefoni */
+      }
+      .img-small {
+        width: 40%;
+      }
+      .img-medium {
+        width: 100%; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Neural Echoes</a>
+    <nav class="nav">
+      <a href="alzheimer.html">alzheimer</a>
+      <a href="project.html">project</a>
+      <a href="about.html">about us</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">project</h1>
+
+  <div class="project-body">
+    
+    <div class="project-text">
+      <h2>Dataset</h2>
+      <p>I dati del nostro progetto provengono da un dataset pubblico di elettroencefalografia (EEG), una tecnica non invasiva che registra l'attività elettrica del cervello tramite elettrodi appoggiati sul cuoio capelluto. Il dataset raccoglie le registrazioni di 88 persone a riposo, con gli occhi chiusi: 36 con malattia di Alzheimer, 23 con demenza frontotemporale e 29 soggetti sani di età comparabile.</p>
+      <p>Le registrazioni per ogni partecipante sono state effettuate con un apparecchio Nihon Kohden EEG 2100 e 19 elettrodi disposti secondo il sistema internazionale 10-20, affiancati da 2 elettrodi di riferimento. Il segnale è stato campionato a 500 Hz, cioè 500 misurazioni al secondo per ogni elettrodo. Ogni registrazione dura in media 12-14 minuti, per un totale di circa 485 minuti di dati Alzheimer e 402 di soggetti sani. La durata della malattia ha una mediana di 25 mesi. Lo stato cognitivo è stato misurato con il test MMSE (da 0 a 30: più basso è il punteggio, più grave è il declino), con una media di 17,75 nel gruppo Alzheimer e 30 nei sani.</p>
+      <p>I dati sono distribuiti nel formato standard BIDS e l'attività elettrica viene analizzata sulle cinque bande di frequenza cerebrali: delta, theta, alpha, beta e gamma. Studiare questi segnali permette di osservare le alterazioni nelle connessioni tra le aree del cervello tipiche di queste malattie. Per questo il dataset è uno strumento prezioso per la diagnosi precoce.</p>
+      <h2>Progetto</h2>
+      <p>La visualizzazione è generata interamente in TouchDesigner. Uno script Python (Script SOP) campiona dei punti sulla mesh 3D di ogni lobo e li collega in una rete tramite un algoritmo di vicinanza che garantisce connessioni complete, senza nodi isolati. Lo stesso script, con parametri diversi, genera anche il cervello malato: meno nodi, meno connessioni, percorsi irregolari al posto di linee dritte, per restituire visivamente la perdita di connettività dell'Alzheimer. Il modello risponde al passaggio del mouse in tempo reale, illuminando i lobi esplorati.</p>
+      <p>Oltre alla parte visiva, il progetto prevede un canale di comunicazione verso l'esterno: i valori associati a ciascun lobo vengono inviati tramite protocollo OSC verso PureData, un software di sintesi sonora esterno alla visualizzazione in TouchDesigner. Ogni lobo, quando attivato, comunica visivamente e acusticamente, traducendo l'attività, o l'assenza di attività (nel caso del cervello malato), in suono.</p>
+      <p>Il suono nasce dai dati EEG: le bande veloci (Alpha/Beta) guidano la salute, quelle lente (Delta/Theta) la malattia, che, in un soggetto sveglio, diventano il biomarcatore del danno neuronale e del ralentamento cognitivo. La rappresentazione della malattia avviene attraverso la degradazione progressiva di tre assi acustici fondamentali: l’armonia, la materia sonora e lo spazio. Nel sano la tonalità è stabile e aperta, il suono è fluido, continuo e riverberato e i dati rivelano picchi sulle alte frequenze, simulando acusticamente sinapsi attive e vitali. Nel malato l'introduzione di micro-stonature (battimenti) fa "vibrare" il suono in modo irregolare, traducendo l'instabilità. Il suono, inoltre, è totalmente privo di riverbero, è secco e ravvicinato. Tramite sintesi granulare, il suono viene frammentato e i frammenti vengono recuperati e riproposti in modo sfasato nel tempo. È la rappresentazione acustica dei loop mentali dove lo stesso frammento di pensiero si ripete ciclicamente senza mai riuscire a risolversi. Attraverso queste polarità, l'installazione offre un'esperienza sensoriale in cui il decadimento cognitivo smette di essere un grafico medico e diventa uno spazio fisico, intimo ed emotivamente tangibile.</p>
+    </div>
+
+    <div class="project-images-column">
+      <img class="project-img img-small" src="project.png" alt="Neural Echoes Diagram">
+      <img class="project-img img-medium" src="imgtd.PNG" alt="TouchDesigner Network">
+      <img class="project-img img-medium" src="imgpd.PNG" alt="PureData Patch">
+    </div>
+
+  </div>
+
+</body>
+</html>
